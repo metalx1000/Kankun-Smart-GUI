@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if [ "$#" -lt 2 ]
+then
+  echo "Useage: $0 <minute> <0/1> # 0=on 1=off"
+  echo "Example: $0 3 1"
+  exit 1
+fi
+
+sw(){
+  echo "swith will activate in $1 minutes."
+  sleep $1m
+  echo $2 > /sys/class/leds/tp-link:blue:relay/brightness
+}
+
+sw $1 $2 &
+
