@@ -1,0 +1,29 @@
+Configuring to SmartPlug Wireless Network - SSH Method
+
+default /etc/config/wireless: 
+...
+
+config wifi-iface
+        option device radio0
+        option network lan
+        option mode ap
+        option ssid OK_SP3
+        option encryption none
+
+change /etc/config/wireless: 
+...
+
+config wifi-iface
+        option device radio0
+        option network wwan
+        option ssid 'YOURSSID'
+        option mode sta
+        option encryption psk
+        option key 'YOUR_WPA_KEY'
+
+append /etc/config/network: (thanks Michael Liddle) 
+  config interface 'wwan'
+  option proto 'dhcp'
+
+After saving this file, reboot the Smart Plug and it should be connected to your home network. If the connection fails, perform the "factory reset" procedures to reset the network settings. 
+# reboot
