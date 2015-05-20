@@ -1,3 +1,4 @@
+#Info from http://www.anites.com/2015/01/hacking-kankun-smart-wifi-plug.html
 Configuring to SmartPlug Wireless Network - SSH Method
 
 default /etc/config/wireless: 
